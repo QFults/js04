@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="animalBtns"></div>
+
+  <script>
+  const animals = [
+    {
+      name: "cat",
+      cool: true,
+      sound: "meow"
+    },
+    {
+      name: "dog",
+      cool: true,
+      sound: "bark"
+    },
+    {
+      name: "chicken",
+      cool: true,
+      sound: "cockadoodledoo"
+    },
+    {
+      name: "racoon",
+      cool: false,
+      sound: "uhhhhhh i eat trash"
+    },
+    {
+      name: "horse",
+      cool: true,
+      sound: "neigh"
+    },
+    {
+      name: "skunk",
+      cool: false,
+      sound: "pshhh"
+    },
+    {
+      name: "bat",
+      cool: false,
+      sound: "sonar bshhhh"
+    },
+    {
+      name: "wolf",
+      cool: true,
+      sound: "howl"
+    },
+    {
+      name: "buffalo",
+      cool: true,
+      sound: "i have no idea"
+    },
+    {
+      name: "dragon",
+      cool: true,
+      sound: "roar"
+    }
+  ]
+
+  for (let i = 0; i < animals.length; i++) {
+    let btnElem = document.createElement('button')
+    btnElem.className = 'animal'
+    btnElem.textContent = animals[i].name
+    btnElem.dataset.index = i
+    document.getElementById('animalBtns').append(btnElem)
+  }
+
+  document.addEventListener('click', (event) => {
+    if (event.target.className === 'animal') {
+      let animal = animals[event.target.dataset.index]
+      alert(`
+        Name: ${animal.name}
+        Sound: ${animal.sound}
+        Cool: ${animal.cool}
+      `)
+    }
+  })
+
+  </script>
+</body>
+</html>
